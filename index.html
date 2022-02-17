@@ -4,14 +4,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xzp's Blog</title>
+    <title>Document</title>
     <style>
-        body{
-            background-color: rgb(36, 34, 34);
-        }
+  *{
+      margin: 0;
+      padding:0;
+  }
+  html{
+      height:100%;
+  }
+  body{
+      height: 100%;
+      background: #ffad00;
+      
+  }
+  .center{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .switch-wrap{
+      width: 600px;
+      height: 350px;
+      background: #ffad00;
+      box-shadow: -10px 65px 65px rgba(102,70,0,0.3),
+      0px 0px 20px rgba(102,70,0,0.5);
+      border-radius: 175px;
+  }
+  .switch-wrap input{
+   width: 0;  
+   height: 0;
+   position: absolute;
+   opacity: 0;
+}
+  .switch{
+      width: 500px;
+      height: 250px;
+      border-radius: 125px;
+      background:linear-gradient(to right,#69a7c3 50%,#e2581d 50% 100%);
+      background-size: 200% 100%;
+      background-position: 75%;
+      transition: background 0.85s ease-in-out;
+    } 
+    .switch-sphere{
+        position: relative;
+        width: 250px;
+        height: 250px;
+        background: red;
+        border-radius: 50%;
+        box-shadow: 0px 10px 10px 1px rgba(68,26,9,0.2),
+        -3px 0px 3px 1px rgba(0,0,0, 0.5);
+        background: linear-gradient(to right,#69a7c3 50%,
+        #e2581d 50% 100%);
+        transition: transform 0.85s ease-in-out;
+    }
+    .switch-sphere-bg{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.85s ease-in-out;
+    }
+    .switch-sphere-bg::after,.switch-sphere-bg::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: absolute;
+    }  
+      .switch-sphere-bg::after{
+       background: #69a7c3;
+       transform:rotateY(180deg);
+    }
+    .switch-sphere-bg::before{
+       background: #e2581d;
+    }
+
+    .switch-sphere-overlay{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100% ;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: inset 0px -30px 30px 15px rgba(0,0,0,0,1);
+    }
+    .switch-wrap input:checked+.switch{
+        background-position: 25%;
+    }
+    .switch-wrap input:checked+.switch .switch-sphere{
+        transform: rotateY(180deg);
+    }
+    .switch-wrap input:checked+.switch .switch-sphere-bg{
+     transform: translateX(250px);
+    }
+    
     </style>
 </head>
-<body>
-
+<body class="center">
+    <label class="switch-wrap center">
+        <input type="checkbox">
+        <div class="switch">
+        <div class="switch-sphere">
+            <div class="switch-sphere-bg"></div>
+            <div class="switch-sphere-overlay"></div>
+        </div>
+        </div>
+    </label>
 </body>
 </html>
